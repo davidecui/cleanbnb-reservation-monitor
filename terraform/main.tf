@@ -180,6 +180,19 @@ resource "google_cloud_run_v2_job" "job" {
           value = var.project_id
         }
         
+        dynamic "env" {
+          for_each = toset(local.secrets)
+          content {
+            name = env.key
+            value_source {
+              secret_key_ref {
+                secret  = google_secret_manager_secret.secrets[env.key].secret_id
+                version = "latest"
+              }
+            }
+          }
+        }
+        
         # In a real environment, you might inject other non-secret env vars here.
       }
     }
