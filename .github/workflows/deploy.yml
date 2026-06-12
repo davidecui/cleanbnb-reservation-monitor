@@ -58,10 +58,40 @@ jobs:
         working-directory: ./terraform
         run: terraform init -backend-config="bucket=${{ secrets.TF_STATE_BUCKET }}"
 
-      - name: Terraform Apply
+      - name: Terraform Apply - Secrets and IAM
         working-directory: ./terraform
         run: |
-          IMAGE_TAG=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPO_NAME }}/${{ env.JOB_NAME }}:${{ github.sha }}
+          terraform apply -auto-approve \
+            -target=google_secret_manager_secret.secrets \
+            -target=google_secret_manager_secret_version.secret_versions \
+            -target=google_project_iam_member.secret_access \
+            -var="project_id=${{ env.PROJECT_ID }}" \
+            -var="github_repo=${{ github.repository }}"
+
+      - name: Bootstrap Secret Versions
+        run: |
+          SECRETS=(
+            "${{ env.JOB_NAME }}-cleanbnb-username"
+            "${{ env.JOB_NAME }}-cleanbnb-password"
+            "${{ env.JOB_NAME }}-cleanbnb-property-id"
+            "${{ env.JOB_NAME }}-smtp-password"
+            "${{ env.JOB_NAME }}-telegram-bot-token"
+          )
+          for SECRET in "${SECRETS[@]}"; do
+            COUNT=$(gcloud secrets versions list "$SECRET" \
+              --filter="state=ENABLED" \
+              --format="value(name)" 2>/dev/null | wc -l)
+            if [ "$COUNT" = "0" ]; then
+              echo -n "placeholder" | gcloud secrets versions add "$SECRET" --data-file=-
+              echo "Bootstrapped placeholder version for $SECRET"
+            else
+              echo "Secret $SECRET already has enabled version(s), skipping"
+            fi
+          done
+
+      - name: Terraform Apply - Full
+        working-directory: ./terraform
+        run: |
           terraform apply -auto-approve \
             -var="project_id=${{ env.PROJECT_ID }}" \
             -var="github_repo=${{ github.repository }}"
@@ -81,5 +111,5 @@ jobs:
           gcloud run jobs update ${{ env.JOB_NAME }} \
             --image $IMAGE_TAG \
             --region ${{ env.REGION }} \
-            --update-env-vars=APP_ENV=cloud,STATE_BACKEND=firestore,GCP_PROJECT=${{ env.PROJECT_ID }},TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }}
-
+            --update-env-vars=APP_ENV=cloud,STATE_BACKEND=firestore,GCP_PROJECT=${{ env.PROJECT_ID }},TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }} \
+            --update-secrets=CLEANBNB_USERNAME=${{ env.JOB_NAME }}-cleanbnb-username:latest,CLEANBNB_PASSWORD=${{ env.JOB_NAME }}-cleanbnb-password:latest,CLEANBNB_PROPERTY_ID=${{ env.JOB_NAME }}-cleanbnb-property-id:latest,SMTP_PASSWORD=${{ env.JOB_NAME }}-smtp-password:latest,TELEGRAM_BOT_TOKEN=${{ env.JOB_NAME }}-telegram-bot-token:latest
