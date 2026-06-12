@@ -98,12 +98,11 @@ resource "google_secret_manager_secret_version" "secret_versions" {
   }
 }
 
-# Grant Secret Access to Cloud Run SA
-resource "google_secret_manager_secret_iam_member" "secret_access" {
-  for_each  = toset(local.secrets)
-  secret_id = google_secret_manager_secret.secrets[each.key].id
-  role      = "roles/secretmanager.secretAccessor"
-  member    = "serviceAccount:${google_service_account.job_sa.email}"
+# Grant Secret Access to Cloud Run SA at project level (simpler and avoids per-secret IAM propagation delays)
+resource "google_project_iam_member" "secret_access" {
+  project = var.project_id
+  role    = "roles/secretmanager.secretAccessor"
+  member  = "serviceAccount:${google_service_account.job_sa.email}"
 }
 
 # Workload Identity Pool for GitHub Actions
@@ -219,7 +218,7 @@ resource "google_cloud_run_v2_job" "job" {
 
   depends_on = [
     google_project_service.apis,
-    google_secret_manager_secret_iam_member.secret_access,
+    google_project_iam_member.secret_access,
     google_secret_manager_secret_version.secret_versions,
   ]
 }

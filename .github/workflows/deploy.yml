@@ -81,5 +81,5 @@ jobs:
           gcloud run jobs update ${{ env.JOB_NAME }} \
             --image $IMAGE_TAG \
             --region ${{ env.REGION }} \
-            --set-env-vars=APP_ENV=cloud,STATE_BACKEND=firestore,GCP_PROJECT=${{ env.PROJECT_ID }},TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }} \
-            --set-secrets=CLEANBNB_USERNAME=${{ env.JOB_NAME }}-cleanbnb-username:latest,CLEANBNB_PASSWORD=${{ env.JOB_NAME }}-cleanbnb-password:latest,CLEANBNB_PROPERTY_ID=${{ env.JOB_NAME }}-cleanbnb-property-id:latest,SMTP_PASSWORD=${{ env.JOB_NAME }}-smtp-password:latest,TELEGRAM_BOT_TOKEN=${{ env.JOB_NAME }}-telegram-bot-token:latest
+            --update-env-vars=APP_ENV=cloud,STATE_BACKEND=firestore,GCP_PROJECT=${{ env.PROJECT_ID }},TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }}
+
