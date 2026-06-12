@@ -7,7 +7,7 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-  REGION: "europe-west8"
+  REGION: "europe-west4"
   JOB_NAME: "cleanbnb-monitor"
   REPO_NAME: "cleanbnb-monitor-repo"
 
