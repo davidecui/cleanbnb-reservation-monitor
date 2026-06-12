@@ -86,6 +86,18 @@ resource "google_secret_manager_secret" "secrets" {
   depends_on = [google_project_service.apis]
 }
 
+resource "google_secret_manager_secret_version" "secret_versions" {
+  for_each    = toset(local.secrets)
+  secret      = google_secret_manager_secret.secrets[each.key].id
+  secret_data = "placeholder"
+
+  lifecycle {
+    ignore_changes = [
+      secret_data
+    ]
+  }
+}
+
 # Grant Secret Access to Cloud Run SA
 resource "google_secret_manager_secret_iam_member" "secret_access" {
   for_each  = toset(local.secrets)
