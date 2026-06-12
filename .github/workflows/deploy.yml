@@ -81,4 +81,4 @@ jobs:
           gcloud run jobs update ${{ env.JOB_NAME }} \
             --image $IMAGE_TAG \
             --region ${{ env.REGION }} \
-            --set-env-vars=APP_ENV=cloud,STATE_BACKEND=firestore,GCP_PROJECT=${{ env.PROJECT_ID }}
+            --set-env-vars=APP_ENV=cloud,STATE_BACKEND=firestore,GCP_PROJECT=${{ env.PROJECT_ID }},TELEGRAM_CHAT_ID=${{ secrets.TELEGRAM_CHAT_ID }}
