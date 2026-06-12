@@ -129,7 +129,15 @@ resource "google_project_iam_member" "github_sa_roles" {
   for_each = toset([
     "roles/run.admin",
     "roles/artifactregistry.writer",
-    "roles/iam.serviceAccountUser" # Required to deploy Cloud Run with job_sa
+    "roles/storage.objectAdmin",            # Required for Terraform GCS backend state management
+    "roles/iam.serviceAccountUser",         # Required to deploy Cloud Run with job_sa
+    "roles/iam.serviceAccountAdmin",        # Required to manage service accounts
+    "roles/resourcemanager.projectIamAdmin", # Required to manage project-level IAM roles/members
+    "roles/secretmanager.admin",            # Required to manage Secret Manager secrets
+    "roles/cloudscheduler.admin",           # Required to manage Cloud Scheduler jobs
+    "roles/datastore.owner",                # Required to manage Firestore database
+    "roles/serviceusage.serviceUsageAdmin", # Required to enable Google Cloud APIs
+    "roles/iam.workloadIdentityPoolAdmin"   # Required to manage Workload Identity Pools/Providers
   ])
   project = var.project_id
   role    = each.key
