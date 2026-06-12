@@ -27,6 +27,11 @@ resource "google_artifact_registry_repository" "repo" {
 # Note: Google Cloud only allows one default Firestore database per project.
 # To create it via Terraform in an existing project, it's often better to assume it exists
 # or use google_firestore_database. Here we create it if it's a new project.
+import {
+  to = google_firestore_database.database
+  id = "projects/${var.project_id}/databases/(default)"
+}
+
 resource "google_firestore_database" "database" {
   name        = "(default)"
   location_id = var.region
