@@ -6,7 +6,9 @@ resource "google_project_service" "apis" {
     "secretmanager.googleapis.com",
     "artifactregistry.googleapis.com",
     "firestore.googleapis.com",
-    "iamcredentials.googleapis.com"
+    "iamcredentials.googleapis.com",
+    "iam.googleapis.com",
+    "cloudresourcemanager.googleapis.com"
   ])
   service            = each.key
   disable_on_destroy = false
