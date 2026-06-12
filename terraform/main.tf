@@ -77,8 +77,8 @@ locals {
 }
 
 resource "google_secret_manager_secret" "secrets" {
-  for_each = toset(local.secrets)
-  secret_id = "${var.job_name}-${replace(each.key, "_", "-")}"
+  for_each  = toset(local.secrets)
+  secret_id = lower("${var.job_name}-${replace(each.key, "_", "-")}")
 
   replication {
     auto {}

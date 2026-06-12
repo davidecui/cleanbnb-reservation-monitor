@@ -78,6 +78,11 @@ jobs:
             "${{ env.JOB_NAME }}-telegram-bot-token"
           )
           for SECRET in "${SECRETS[@]}"; do
+            # Skip if the secret resource doesn't exist yet in GCP
+            if ! gcloud secrets describe "$SECRET" --format="value(name)" &>/dev/null; then
+              echo "Secret $SECRET does not exist yet, skipping (Terraform will create it)"
+              continue
+            fi
             COUNT=$(gcloud secrets versions list "$SECRET" \
               --filter="state=ENABLED" \
               --format="value(name)" 2>/dev/null | wc -l)
