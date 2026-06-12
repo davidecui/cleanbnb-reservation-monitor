@@ -1,0 +1,19 @@
+requests==2.32.3
+beautifulsoup4==4.12.3
+tenacity==8.3.0
+
+# Pydantic & Config
+pydantic==2.8.2
+pydantic-settings==2.3.4
+python-dotenv==1.0.1
+
+# Logging
+python-json-logger==2.0.7
+
+# GCP (Firestore & Secret Manager)
+google-cloud-firestore==2.17.0
+google-cloud-secret-manager==2.20.0
+
+# Testing
+pytest==8.2.2
+responses==0.25.3

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css">
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+	rel="stylesheet" type="text/css">
+<link href="/assets/libraries/font-awesome/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+<link href="/assets/libraries/entypo/style.css" rel="stylesheet"
+	type="text/css">
+<link href="/assets/libraries/owl-carousel/owl.carousel.min.css"
+	rel="stylesheet" type="text/css">
+<link href="/assets/libraries/owl-carousel/owl.carousel.default.css"
+	rel="stylesheet" type="text/css">
+<link href="/cleanbnb/css/eve-black-magenta.css?v=20250825" rel="stylesheet"
+	type="text/css" id="css-primary">
+<link rel="shortcut icon" type="image/x-icon"
+	href="/cleanbnb/images/favicon.ico">
+<link href="/fullcalendar/fullcalendar.min.css" rel="stylesheet" />
+<link href="/css/public.css" rel="stylesheet" />
+
+<link href="/lte/plugins/datepicker/datepicker3.css" rel="stylesheet" />
+
+<title>CleanBnB</title>
+	<script>var hotel_id = 'cleanbnb';</script>
+	<script type="text/javascript" src="/assets/js/jquery.js"></script>
+	<script type="text/javascript" src="/assets/js/tether.min.js"></script>
+	<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/libraries/bootstrap-typeahead/bootstrap3-typeahead.min.js"></script>
+	<script type="text/javascript" src="/assets/libraries/owl-carousel/owl.carousel.min.js"></script>
+
+	<script type="text/javascript" src="/assets/js/jquery.ytplayer.min.js"></script>
+	<script type="text/javascript" src="/assets/js/jquery.ezmark.min.js"></script>
+	<script type="text/javascript" src="/assets/js/eve.js"></script>
+
+	<script type="text/javascript" src="/js/custom.js"></script>
+
+    <script type="text/javascript" src="/fullcalendar/moment.min.js"></script>
+    <script type="text/javascript" src="/fullcalendar/fullcalendar.min.js"></script>
+    <script type="text/javascript" src='/fullcalendar/locale/it.js'></script>
+    
+    <script type="text/javascript" src='/lte/plugins/datepicker/bootstrap-datepicker.js'></script>
+    <script type="text/javascript" src='/lte/plugins/datepicker/locales/bootstrap-datepicker.it.js'></script>  
+        <script type="text/javascript" src="/validate/jquery.validate.min.js"></script>
+        <script type="text/javascript" src="/cleanbnb/js/modal.js"></script>
+    
+
+</head>
+
+<div class="loading"  id="loading" style="display: none">Caricamento&#8230;</div>
+<body>
+
+	<div class="header-sticky">
+		<div class="header-sticky-inner">
+			<div class="header-logo">
+				<a href="/cleanbnb"> <img src="/cleanbnb/images/logo.png" height="30" />				</a>
+			</div>
+
+			<div class="nav-primary navbar-toggleable-md collapse">
+				<ul class="nav nav-pills">
+	
+	<li class="nav-item"><a href="/cleanbnb/property" class="nav-link">Propriet&agrave;</a></li>
+<li class="nav-item"><a href="/cleanbnb/reservations" class="nav-link ">Prenotazioni</a></li>
+<li class="nav-item"><a href="/cleanbnb/vr/distinte" class="nav-link ">Distinte</a></li>
+<li class="nav-item"><a href="/cleanbnb/vr/documents" class="nav-link ">Amministrazione</a></li>
+
+<li class="nav-item"><a href="/cleanbnb/vr/invoices" class="nav-link ">Fatture</a></li>
+<li class="nav-item"><a href="/cleanbnb/vr/stats" class="nav-link ">Statistiche</a></li>
+
+
+<li class="nav-item"><a href="/cleanbnb/vr/reviews" class="nav-link ">Recensioni</a></li>
+
+<li class="nav-item"><a href="/cleanbnb/communications" class="nav-link ">Avvisi</a></li>
+<li class="nav-item"><a href="/cleanbnb/communications/contact-us" class="nav-link ">Contattaci</a></li>
+<li class="nav-item"><a href="/cleanbnb/password" class="nav-link ">Cambio password</a></li>
+
+		<li class="nav-item"><a href="/cleanbnb/login/logout" class="nav-link">Logout</a></li>
+				</ul>
+			</div>
+
+			<button class="navbar-toggler hidden-lg-up" type="button"
+				data-toggle="collapse" data-target=".header .nav-primary">
+				<span></span> <span></span> <span></span>
+			</button>
+		</div>
+	</div>
+
+	<div class="page-wrapper">
+		<div class="header-wrapper">
+			<div class="header">
+				<div class="header-inner">
+					<div class="header-top">
+						<div class="container-fluid">
+							<div class="header-logo">
+								<a href="/cleanbnb"> <img src="/cleanbnb/images/logo.png"
+									height="90" />
+																</a>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="header-bottom">
+						<div class="container-fluid">
+							<div class="nav-primary navbar-toggleable-md collapse">
+								<ul class="nav nav-pills">
+				
+									<li class="nav-item"><a href="/cleanbnb/property" class="nav-link ">
+									Le mie propriet&agrave;</a></li>
+									<li class="nav-item"><a href="/cleanbnb/reservations" class="nav-link ">
+								Prenotazioni</a></li>
+<li class="nav-item"><a href="/cleanbnb/vr/distinte" class="nav-link ">Report</a></li>
+<li class="nav-item"><a href="/cleanbnb/vr/documents" class="nav-link ">Amministrazione</a></li>
+
+<li class="nav-item"><a href="/cleanbnb/vr/invoices" class="nav-link ">Fatture</a></li>
+<li class="nav-item"><a href="/cleanbnb/vr/stats" class="nav-link ">Statistiche</a></li>
+
+
+<li class="nav-item"><a href="/cleanbnb/vr/reviews" class="nav-link ">Recensioni</a></li>
+
+<li class="nav-item"><a href="/cleanbnb/communications" class="nav-link ">Avvisi</a></li>
+<li class="nav-item"><a href="/cleanbnb/communications/contact-us" class="nav-link ">Contattaci</a></li>
+<li class="nav-item"><a href="/cleanbnb/password" class="nav-link ">Cambio password</a></li>
+
+<li class="nav-item"><a href="/cleanbnb/login/logout" class="nav-link">Logout</a></li>
+								</ul>
+							</div>
+							<!-- /.nav-primary -->
+
+							<button class="navbar-toggler hidden-lg-up" type="button"
+								data-toggle="collapse" data-target=".header .nav-primary">
+								<span></span> <span></span> <span></span>
+							</button>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="main-wrapper">
+			<div class="main">
+				<div class="main-inner">
+
+					<div class="content">
+
+												
+												<div class="page-header pull-top">
+							<div class="page-header-inner">
+								<div class="container-fluid">
+									<h1>Le mie prenotazioni</h1>
+								</div>
+							</div>
+						</div>
+												
+                                                <div class="container-fluid">
+							<ol class="breadcrumb">
+                        		                        		<li
+									><a
+									href="/">Home</a></li>
+                        		                        		<li
+									class="active">Le mie prenotazioni</li>
+                        		                        	</ol>
+						</div>
+           				           				
+                        
+                        	<style>
+.table-res {
+	font-size: 0.9em;
+}
+</style><div class="container-fluid">
+	<div class="row">
+		<div class="col-xl-2">
+			<div class="filter filter-primary checkbox-light">
+				<form method="get" action="/cleanbnb/reservations">
+					<h2>Ricerca</h2>
+
+					<div class="filter-group">
+						<div class="filter-group-inner">
+							<div class="form-group">
+								<label>Dal</label> <input type="text" name="from"
+									class="datepicker form-control" id="from"
+									value="16/04/2026" />
+							</div>
+
+							<div class="form-group">
+								<label>Al</label> <input type="text" name="to"
+									class="datepicker form-control" id="to"
+									value="16/05/2027" />
+							</div>
+
+							<div class="form-group">
+								<label>Cerca per data di</label> <select id="type" class="form-control" name="type"><option value="checkin">Check in</option><option value="checkout">Check out</option><option value="date">Data prenotazione</option><option selected="selected" value="stay">Soggiorno</option></select>							</div>
+
+							<div class="form-group">
+
+								<label>Appartamento</label> <select id="apt" class="form-control" name="apt"><option value="">[Tutti]</option><option value="6402">Buggerru Ginestre 30 CA</option></select>							</div>
+						</div>
+					</div>
+
+					<div class="form-group-btn ">
+						<button type="submit" class="btn btn-secondary btn-block">Ricerca</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+
+		<div class=" col-xl-10">
+			<div class="information">
+
+
+<table class="table table-res">
+<thead>
+ <tr>
+  <th>Prenotazione</th>
+          <th>Portale</th>
+         <th>Check in</th>
+  <th>Check out</th>
+               <th>Notti</th>
+       
+  <th>Appartamento</th>
+    
+<th>Nazione</th>
+          <th>Stato</th>
+      <th>N. ospiti</th>
+  
+       <th>Incasso Totale (A)</th>
+       
+  <th>OTA Fee (B)</th>
+       
+  <th>Importo netto OTA Fee (C)</th>
+         <th>Fee CleanBnB fatt. guest (D)</th>
+       
+  <th>Lordo Host (E)</th>
+       
+  <th>Imposta Host (F)</th>
+ 
+       
+  <th>Fee CleanBnB fatt. host (G)</th>
+       
+  <th>Netto host (H)</th>
+  <th>Cleaning fee (I)</th>
+  <th></th>
+
+
+  </tr>
+ </thead>
+
+       <tr>
+       <th colspan="4">
+        <b>Totale -
+         0 Prenotazioni</b>
+
+
+        </th>
+        <th>
+         0        </th>
+<th></th>
+
+          <th></th>
+          <th></th>
+      <th></th>
+  
+
+      
+        <th>&euro;0,00        </th>
+            
+       <th>
+         &euro;0,00        </th>
+            
+        <th>
+         &euro;0,00        </th>
+
+            
+        <th>&euro;0,00        </th>
+      
+
+      
+        <th>&euro;0,00        </th>
+            
+        <th>&euro;0,00        </th>
+              <th>&euro;0,00        </th>
+
+              <th>&euro;0,00        </th>
+              <th>&euro;0,00        </th>
+	      <th>
+        <th/>
+       </tr>
+             </table>
+
+
+			</div>
+		</div>
+
+		<div class="col-sm-3"></div>
+	</div>
+</div>
+
+
+
+<script>
+function viewAttaches(id_reservation) {
+	newModal('/cleanbnb/reservations/attaches/id_reservation/'+id_reservation, 'Allegati', null, 2);
+}
+
+
+function viewGuest(id_reservation) {
+	newModal('/cleanbnb/reservations/guests/id_reservation/'+id_reservation, 'Ospiti', null, 3);
+}
+</script>
+                        
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-wrapper">
+			<div class="footer">
+				<div class="container-fluid">
+					<div class="footer-inner">
+						<div class="footer-top">
+							<div class="footer-left">
+								<p class="white">
+									<b>CleanBnB</b>
+								</p>
+							</div>
+							<!-- /.footer-left -->
+
+							<div class="footer-right">
+								<ul class="nav nav-social">
+									<li class="nav-item"><a href="https://www.facebook.com/cleanbnb.official/" target="_blank"
+											 class="nav-link"><i
+											class="fa fa-facebook"></i></a></li>
+									<li class="nav-item"><a href="http://twitter.com/cleanbnb_mi" target="_blank" class="nav-link"><i
+											class="fa fa-twitter"></i></a></li>
+									<li class="nav-item"><a href="https://www.instagram.com/cleanbnb_net/" target="_blank" class="nav-link"><i
+											class="fa fa-instagram"></i></a></li>
+									<li class="nav-item"><a href="https://www.linkedin.com/company/cleanbnb" target="_blank" class="nav-link"><i
+											class="fa fa-linkedin"></i></a></li>
+									<li class="nav-item"><a href="https://www.youtube.com/channel/UCRVaNefCVaj5UWGdOIGgBCg/featured?view_as=subscriber" 
+											target="_blank" class="nav-link"><i
+											class="fa fa-youtube"></i></a></li>
+								</ul>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="page-message-wrapper">
+			<div class="page-message">
+				<div class="container-fluid">
+					<a href="http://www.cleanbnb.net" target="_blank" class="btn btn-secondary btn-xs">www.cleanbnb.net</a>
+					<a href="https://www.krossbooking.com" target="_blank" style="float:right; color:#fff; font-size:0.9em">Powered by <img src="https://book.krossbooking.com/images/krosslogo_bold.png" width="16" style="vertical-align: baseline" /></a>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="page-wrapper-overlay"></div>
+	</div>
+</body>
+</html>
+<script>console.log(atob("QXJyYXkKKAogICAgWzBdID0+IGdldAogICAgWzFdID0+IEFycmF5CiAgICAgICAgKAogICAgICAgICAgICBbZnJvbV0gPT4gMTYvMDQvMjAyNgogICAgICAgICAgICBbdG9dID0+IDE2LzA1LzIwMjcKICAgICAgICAgICAgW3R5cGVdID0+IHN0YXkKICAgICAgICAgICAgW2FwdF0gPT4gY2xlYW5ibmIKICAgICAgICApCgogICAgWzJdID0+IAogICAgWzNdID0+IAogICAgW2N1cnJlbnRdID0+IDAuMzQKICAgIFt0aW1lXSA9PiAwLjM0CikK"));
+console.log(atob("QXJyYXkKKAogICAgWzBdID0+IHBvc3QKICAgIFsxXSA9PiBBcnJheQogICAgICAgICgKICAgICAgICApCgogICAgWzJdID0+IAogICAgWzNdID0+IAogICAgW2N1cnJlbnRdID0+IDAKICAgIFt0aW1lXSA9PiAwLjM0CikK"));
+console.log(atob("QXJyYXkKKAogICAgWzBdID0+IHBhcmFtcwogICAgWzFdID0+IEFycmF5CiAgICAgICAgKAogICAgICAgICAgICBbZnJvbV0gPT4gMTYvMDQvMjAyNgogICAgICAgICAgICBbdG9dID0+IDE2LzA1LzIwMjcKICAgICAgICAgICAgW3R5cGVdID0+IHN0YXkKICAgICAgICAgICAgW2FwdF0gPT4gY2xlYW5ibmIKICAgICAgICApCgogICAgWzJdID0+IAogICAgWzNdID0+IAogICAgW2N1cnJlbnRdID0+IDAKICAgIFt0aW1lXSA9PiAwLjM0CikK"));
+console.log(atob("QXJyYXkKKAogICAgWzBdID0+IHJvdXRpbmcKICAgIFsxXSA9PiBBcnJheQogICAgICAgICgKICAgICAgICAgICAgW21vZHVsZV0gPT4gRnJvbnQKICAgICAgICAgICAgW2NvbnRyb2xsZXJdID0+IHJlc2VydmF0aW9ucwogICAgICAgICAgICBbYWN0aW9uXSA9PiBJbmRleAogICAgICAgICAgICBbcGFyYW1zXSA9PiBBcnJheQogICAgICAgICAgICAgICAgKAogICAgICAgICAgICAgICAgICAgIFtmcm9tXSA9PiAxNi8wNC8yMDI2CiAgICAgICAgICAgICAgICAgICAgW3RvXSA9PiAxNi8wNS8yMDI3CiAgICAgICAgICAgICAgICAgICAgW3R5cGVdID0+IHN0YXkKICAgICAgICAgICAgICAgICAgICBbYXB0XSA9PiBjbGVhbmJuYgogICAgICAgICAgICAgICAgKQoKICAgICAgICAgICAgW3VyaV0gPT4gL2NsZWFuYm5iL3Jlc2VydmF0aW9ucwogICAgICAgICkKCiAgICBbMl0gPT4gCiAgICBbM10gPT4gCiAgICBbY3VycmVudF0gPT4gMAogICAgW3RpbWVdID0+IDAuMzQKKQo="));
+console.log(atob("QXJyYXkKKAogICAgWzBdID0+IElOQ0xVREUgRnJvbnRcQ29udHJvbGxlclxSZXNlcnZhdGlvbnMgPT4gaW5pdAogICAgWzFdID0+IHJvdXRlCiAgICBbMl0gPT4gCiAgICBbM10gPT4gCiAgICBbY3VycmVudF0gPT4gMAogICAgW3RpbWVdID0+IDAuMzQKKQo="));
+console.log(atob("QXJyYXkKKAogICAgWzBdID0+IEN1c3RvbSBzY3JpcHQgL3Zhci93d3cvdmhvc3RzL3ZyLmtyb3NzYm9va2luZy5jb20vaHR0cGRvY3MvY3VzdG9tL2NsZWFuYm5iL2FwcGxpY2F0aW9uL21vZHVsZXMvRnJvbnQvVmlld3MvcmVzZXJ2YXRpb25zL2luZGV4LnBodG1sCiAgICBbMV0gPT4gCiAgICBbMl0gPT4gCiAgICBbM10gPT4gCiAgICBbY3VycmVudF0gPT4gMC45NgogICAgW3RpbWVdID0+IDEuMwopCg=="));
+console.log(atob("QXJyYXkKKAogICAgWzBdID0+IHRpbWUKICAgIFsxXSA9PiAxLjMwNTIxNDE2NjY0MTIKICAgIFsyXSA9PiAKICAgIFszXSA9PiAKICAgIFtjdXJyZW50XSA9PiAwCiAgICBbdGltZV0gPT4gMS4zMQopCg=="));
+</script>

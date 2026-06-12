@@ -1,0 +1,6 @@
+project_id  = "YOUR_GCP_PROJECT_ID"
+region      = "europe-west8"
+github_repo = "YOUR_GITHUB_ORG/YOUR_GITHUB_REPO"
+job_name    = "cleanbnb-monitor"
+schedule    = "0 8 * * *"
+timezone    = "Europe/Rome"
