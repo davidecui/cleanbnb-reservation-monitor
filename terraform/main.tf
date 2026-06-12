@@ -217,7 +217,11 @@ resource "google_cloud_run_v2_job" "job" {
     ]
   }
 
-  depends_on = [google_project_service.apis]
+  depends_on = [
+    google_project_service.apis,
+    google_secret_manager_secret_iam_member.secret_access,
+    google_secret_manager_secret_version.secret_versions,
+  ]
 }
 
 # Cloud Scheduler
